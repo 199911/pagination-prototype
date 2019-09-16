@@ -8,10 +8,15 @@
   pointer-events: none;
 }
 
-.PageContainer {
+.Page {
+  border-style: solid;
+  border-color: red;
+  border-width: 2px;
+}
+
+.CardContainer {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: space-around
 }
 
 .Card {
