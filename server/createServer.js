@@ -6,9 +6,9 @@ const createServer = (itemService) => {
       const { token } = req.query;
       const result = await itemService.getPage(token);
       console.log(result)
-      res.json(result);
+      res.set('Access-Control-Allow-Origin', '*').json(result);
     })
-    app.listen(3000)
+    app.listen(4000)
 }
 
 module.exports = createServer;
