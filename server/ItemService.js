@@ -54,6 +54,13 @@ class ItemService {
             };
         }
     }
+
+    async addItem(name, likes) {
+        const queryBuilder = this.knex
+            .table(this.table)
+            .insert({ name, likes });
+        await queryBuilder;
+    }
 }
 
 module.exports = ItemService;
