@@ -1,7 +1,7 @@
 const createServer = require('./createServer');
 const KnexFactory = require('./KnexFactory');
-const ItemService = require('./ItemService');
+const CursorBasedItemService = require('./CursorBasedItemService');
 
 const mysql = (new KnexFactory()).createMysql()
-const itemService = new ItemService(mysql);
+const itemService = new CursorBasedItemService(mysql);
 createServer(itemService);
