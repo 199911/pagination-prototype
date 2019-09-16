@@ -1,0 +1,14 @@
+version: "2.3"
+services:
+  mongodb:
+    image: mongo:4.0
+    ports:
+    - "27017:27017"
+  mysql:
+    image: mysql:5.7
+    ports:
+    - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: pagination_poc
