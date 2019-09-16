@@ -7,3 +7,21 @@
   height: 40vmin;
   pointer-events: none;
 }
+
+.PageContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  border-style: solid;
+  border-color: green;
+  border-width: 1px;
+  padding: 5px;
+  max-width: fit-content;
+}

@@ -35,7 +35,7 @@ const PageContainer = () => {
         }
     }
     return (
-        <div>
+        <div className='PageContainer'>
             {
                 pageOrder.map(
                     (token, index) =>

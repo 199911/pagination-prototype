@@ -2,11 +2,12 @@ import React from 'react';
 
 const Card = (props) => {
     const { name, like, createdAt } = props
+    const createAtStr = (new Date(createdAt)).toDateString()
     return (
-        <div>
+        <div className='Card'>
             <h3>{ name }</h3>
-            <p>{ like }</p>
-            <p>{ createdAt }</p>
+            <p>{ `Likes: ${like}` }</p>
+            <p>{ `Created At: ${createAtStr}` }</p>
         </div>
     )
 }
