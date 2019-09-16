@@ -8,7 +8,17 @@
   pointer-events: none;
 }
 
+.PageContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border-style: solid;
+  border-color: yellow;
+  border-width: 5px;
+}
+
 .Page {
+  margin: 20px;
   border-style: solid;
   border-color: red;
   border-width: 2px;
@@ -16,7 +26,7 @@
 
 .CardContainer {
   display: flex;
-  justify-content: space-around
+  justify-content: space-around;
 }
 
 .Card {
