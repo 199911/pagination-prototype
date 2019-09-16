@@ -9,7 +9,7 @@ const Page = (props) => {
                 { items.map((item, index) => <Card key={index} {...item} />) }
             </div>
             <button onClick={reload}>Reload</button>
-            <button onClick={getNextPage}>Next page</button>
+            { getNextPage && <button onClick={getNextPage}>Next page</button> }
         </div>
     )
 }

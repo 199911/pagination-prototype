@@ -40,7 +40,7 @@ const PageContainer = () => {
                             key={index}
                             items={data}
                             reload={getPageHoc(currentPage)}
-                            getNextPage={getPageHoc(nextPage)}
+                            getNextPage={nextPage && getPageHoc(nextPage)}
                         />)
                     }
                 )
