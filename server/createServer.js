@@ -1,9 +1,12 @@
 const express = require('express')
 
-const createServer = () => {
+const createServer = (itemService) => {
     const app = express()
-    app.get('/', function (req, res) {
-      res.send('Hello World')
+    app.get('/items', async (req, res) => {
+      const { token } = req.query;
+      const result = await itemService.getPage(token);
+      console.log(result)
+      res.json(result);
     })
     app.listen(3000)
 }
