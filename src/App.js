@@ -2,20 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Page from './Page'
-
-const pageOne = [
-  { name: 'Sunday', like: 199, createdAt: +new Date()},
-  { name: 'Monday', like: 911, createdAt: +new Date()},
-  { name: 'Tuesday', like: 666, createdAt: +new Date()},
-]
-
-const pageTwo = [
-  { name: 'Wednesday', like: 123, createdAt: +new Date()},
-  { name: 'Thursday', like: 456, createdAt: +new Date()},
-  { name: 'Friday', like: 987, createdAt: +new Date()},
-]
-
+import PageContainer from './PageContainer'
 
 function App() {
   return (
@@ -34,7 +21,7 @@ function App() {
           Learn React
         </a>
       </header>
-      <Page {...{items:pageOne, reload: () => pageOne, getNextPage: () => pageTwo}} />
+      <PageContainer/>
     </div>
   );
 }
