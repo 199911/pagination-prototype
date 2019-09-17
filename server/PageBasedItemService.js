@@ -4,18 +4,25 @@ class CursorBasedItemService extends ItemService {
 
     async getPage (token) {
         const page = token ? parseInt(token, 10) : 0;
-        const queryBuilder = this.knex
+        const dataQueryBuilder = this.knex
             .table(this.table)
             .select()
             .offset(this.pageSize*page)
             .limit(this.pageSize)
             .orderBy('id', 'desc');
-        const results = await queryBuilder;
+        const results = await dataQueryBuilder;
+        const countQueryBuilder = this.knex
+            .table(this.table)
+            .count(null, {as: 'count'});
+        const [{count}] = await countQueryBuilder;
+        const maxPage = Math.ceil(count / this.pageSize)
+        let currentPage = page;
+        let nextPage = currentPage + 1 < maxPage ? currentPage + 1 : null
         return {
             data: results,
             pagination: {
-                currentPage: page,
-                nextPage: page + 1,
+                currentPage,
+                nextPage,
             }
         };
     }
