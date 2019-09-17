@@ -39,6 +39,8 @@ const PageContainer = () => {
                         return (<Page
                             key={index}
                             items={data}
+                            currentPage={ currentPage }
+                            nextPage={ nextPage }
                             reload={getPageHoc(currentPage)}
                             getNextPage={nextPage && getPageHoc(nextPage)}
                         />)

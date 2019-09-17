@@ -2,9 +2,10 @@ import React from 'react';
 import Card from './Card'
 
 const Page = (props) => {
-    const {items, reload, getNextPage} = props
+    const {items, currentPage, nextPage, reload, getNextPage} = props
     return (
         <div className='Page'>
+            <h1>{ `current: ${currentPage} nextPage: ${nextPage}`}</h1>
             <div className='CardContainer'>
                 { items.map((item, index) => <Card key={index} {...item} />) }
             </div>
