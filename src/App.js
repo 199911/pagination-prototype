@@ -6,7 +6,14 @@ import PageContainer from './PageContainer'
 function App() {
   return (
     <div className="App">
-      <PageContainer/>
+      <PageContainer
+        domain='http://localhost:4000'
+        title="Page-based"
+      />
+      <PageContainer
+        domain='http://localhost:4001'
+        title="Token-based"
+      />
     </div>
   );
 }

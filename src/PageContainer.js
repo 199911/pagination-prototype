@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import Page from './Page'
 
-const requestPageApi = async (token) => {
-    const endpoint = token ?
-        `http://localhost:4000/items?token=${token}` :
-        'http://localhost:4000/items';
-    const response = await fetch(endpoint).then(res => res.json());
-    return response;
-};
-
-const PageContainer = () => {
+const PageContainer = (props) => {
+    const {domain, title} = props
+    const requestPageApi = async (token) => {
+        const endpoint = token ?
+            `${domain}/items?token=${token}` :
+            `${domain}/items`;
+        const response = await fetch(endpoint).then(res => res.json());
+        return response;
+    };
     const [pageData, setPageData] = useState({});
     const [pageOrder, setPageOrder] = useState([]);
 
@@ -27,6 +27,7 @@ const PageContainer = () => {
     }
     return (
         <div className='PageContainer'>
+            <h1>{ title }</h1>
             {
                 pageOrder.map(
                     (token, index) => {
