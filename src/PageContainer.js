@@ -18,7 +18,7 @@ const PageContainer = (props) => {
         const currentPageToken = newPage.pagination.currentPage;
         setPageData({...pageData, [currentPageToken]: newPage })
         if (pageOrder.findIndex(target => currentPageToken === target) === -1) {
-            pageOrder.push(currentPageToken)
+            pageOrder.unshift(currentPageToken)
             setPageOrder([...pageOrder])
         }
     }
