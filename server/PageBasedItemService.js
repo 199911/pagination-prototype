@@ -10,10 +10,12 @@ class CursorBasedItemService extends ItemService {
             .offset(this.pageSize*page)
             .limit(this.pageSize)
             .orderBy('id', 'desc');
+        console.log(dataQueryBuilder.toString());
         const results = await dataQueryBuilder;
         const countQueryBuilder = this.knex
             .table(this.table)
             .count(null, {as: 'count'});
+        console.log(countQueryBuilder.toString());
         const [{count}] = await countQueryBuilder;
         const maxPage = Math.ceil(count / this.pageSize)
         let currentPage = page;

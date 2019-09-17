@@ -27,6 +27,7 @@ class CursorBasedItemService extends ItemService {
             const { id } = this.decodeToken(token);
             queryBuilder.where('id', '<=', id)
         }
+        console.log(queryBuilder.toString());
         const results = await queryBuilder;
 
         const currentPage = this.buildToken(results[0]);
