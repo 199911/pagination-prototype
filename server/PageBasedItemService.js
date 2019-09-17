@@ -12,11 +12,17 @@ class CursorBasedItemService extends ItemService {
             .orderBy('id', 'desc');
         console.log(dataQueryBuilder.toString());
         const results = await dataQueryBuilder;
+        console.log(results);
+        // const countQueryBuilder = this.knex
+        //     .table(this.table)
+        //     .count(null, {as: 'count'});
+        // Improve row cound query performance:
         const countQueryBuilder = this.knex
-            .table(this.table)
-            .count(null, {as: 'count'});
+            .table('INFORMATION_SCHEMA.TABLES')
+            .select('TABLE_ROWS')
+            .where({'TABLE_NAME': this.table});
         console.log(countQueryBuilder.toString());
-        const [{count}] = await countQueryBuilder;
+        const [{TABLE_ROWS: count}] = await countQueryBuilder;
         const maxPage = Math.ceil(count / this.pageSize)
         let currentPage = page;
         let nextPage = currentPage + 1 < maxPage ? currentPage + 1 : null
