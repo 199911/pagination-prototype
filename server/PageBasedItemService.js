@@ -12,7 +12,6 @@ class CursorBasedItemService extends ItemService {
             .orderBy('id', 'desc');
         console.log(dataQueryBuilder.toString());
         const results = await dataQueryBuilder;
-        console.log(results);
         // const countQueryBuilder = this.knex
         //     .table(this.table)
         //     .count(null, {as: 'count'});

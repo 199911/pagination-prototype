@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Page from './Page'
 
 const PageContainer = (props) => {
@@ -16,15 +16,15 @@ const PageContainer = (props) => {
     const getPageHoc = (token) => async () => {
         const newPage = await requestPageApi(token)
         const currentPageToken = newPage.pagination.currentPage;
-        setPageData({...pageData, [currentPageToken]: newPage })
+        setPageData(page => ({...page, [currentPageToken]: newPage }))
         if (pageOrder.findIndex(target => currentPageToken === target) === -1) {
-            pageOrder.unshift(currentPageToken)
-            setPageOrder([...pageOrder])
+            setPageOrder(page => [currentPageToken, ...page])
         }
     }
-    if (pageOrder.length === 0) {
+    useEffect(() => {
         getPageHoc()();
-    }
+    }, [])
+
     return (
         <div className='PageContainer'>
             <h1>{ title }</h1>
